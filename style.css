@@ -1,0 +1,300 @@
+/*
+Theme Name: Alphabet Finserve
+Theme URI: https://alphabetfinserve.com/
+Author: Alphabet Finserve Consultancy
+Author URI: https://alphabetfinserve.com/
+Description: A premium, professional custom WordPress theme for Alphabet Finserve Consultancy, built for maximum performance and 100% Elementor compatibility.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: alphabet-finserve
+*/
+
+/* 
+  Basic styles to ensure the theme functions before Elementor takes over.
+  Most styling will be handled by Elementor and the enqueued Tailwind build.
+*/
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #f29b22 0%, #d4841d 100%);
+  --primary-shadow: 0 4px 15px rgba(242, 155, 34, 0.4);
+  --primary-shadow-hover: 0 6px 20px rgba(242, 155, 34, 0.6);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #36454F;
+  background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #1c4970;
+}
+
+/* Global Container Width Overrides - Optimized for Elementor Full-Width + Boxed sections */
+html,
+body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#page,
+#content,
+#primary,
+.site-main {
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  /* Ensure no escaping children cause gaps */
+}
+
+/* Base container for theme elements - only for general text/boxed items */
+.container {
+  width: 100% !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* 
+   FORCE Elementor Sections to break out of any theme constraints.
+   This targets the section, the row (container), and the column wraps.
+*/
+.elementor-section.elementor-section-full_width,
+.elementor-section.elementor-section-full_width>.elementor-container,
+.elementor-section.elementor-section-full_width>.elementor-container>.elementor-row,
+.elementor-section.elementor-section-full_width>.elementor-container>.elementor-column-gap-default,
+.elementor-section.elementor-section-stretched {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  left: 0 !important;
+  /* Important for stretched sections */
+}
+
+/* Handle Elementor Boxed sections specifically */
+.elementor-section.elementor-section-boxed>.elementor-container {
+  max-width: 1400px !important;
+  width: 100% !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media (min-width: 768px) {
+
+  .container,
+  .elementor-section.elementor-section-boxed>.elementor-container {
+    max-width: 750px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .container,
+  .elementor-section.elementor-section-boxed>.elementor-container {
+    max-width: 1000px !important;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .container,
+  .elementor-section.elementor-section-boxed>.elementor-container {
+    max-width: 1300px !important;
+  }
+}
+
+@media (min-width: 1440px) {
+
+  .container,
+  .elementor-section.elementor-section-boxed>.elementor-container {
+    max-width: 1550px !important;
+  }
+}
+
+@media (min-width: 1600px) {
+
+  .container,
+  .elementor-section.elementor-section-boxed>.elementor-container {
+    max-width: 1700px !important;
+  }
+}
+
+@media (min-width: 1920px) {
+
+  .container,
+  .elementor-section.elementor-section-boxed>.elementor-container {
+    max-width: 1850px !important;
+  }
+}
+
+/* Nav Bar Active Indicator & Scroll Styles */
+#site-navigation .menu-item {
+  position: relative;
+}
+
+#site-navigation .menu-item a {
+  position: relative;
+  display: inline-block;
+}
+
+#site-navigation .menu-item a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #f29b22;
+  /* Primary color */
+  transition: width 0.3s ease;
+}
+
+#site-navigation .menu-item.current-menu-item a::after,
+#site-navigation .menu-item:hover a::after {
+  width: 100%;
+}
+
+/* Scrolled State for Nav Bar */
+#site-navigation.scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Force Navbar Width parity with React - User Specific Overrides */
+#site-navigation {
+  position: fixed !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  max-width: 1750px !important;
+  width: 85% !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 1024px) {
+  #site-navigation {
+    width: 92% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  #site-navigation {
+    width: 95% !important;
+    top: 10px !important;
+  }
+}
+
+#site-navigation .container,
+#site-navigation .max-w-\[1600px\] {
+  max-width: 1650px !important;
+}
+
+/* Transition for Logo */
+#navbar-logo {
+  transition: all 0.3s ease;
+}
+
+/* Specific widget overrides for 100% breakout parity */
+.alphabet-full-width {
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  margin-left: -50vw !important;
+  max-width: none !important;
+}
+
+.alphabet-container {
+  width: 100% !important;
+  max-width: 1600px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* ZERO-GAP OVERRIDES */
+.elementor-section,
+.elementor-column,
+.elementor-column-wrap,
+.elementor-widget-wrap,
+.elementor-widget-container {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* ZERO-GAP OVERRIDES handled by individual widgets for precision */
+
+html {
+  margin-top: 0 !important;
+}
+
+* html body {
+  margin-top: 0 !important;
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    margin-top: 0 !important;
+  }
+}
+
+/* CASE STUDIES PARITY REINFORCEMENT */
+.alphabet-case-study-card img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  z-index: 0 !important;
+}
+
+.alphabet-case-study-card .bg-gradient-to-t {
+  z-index: 1 !important;
+}
+
+.alphabet-case-study-card .absolute.top-6,
+.alphabet-case-study-card .absolute.bottom-0 {
+  z-index: 2 !important;
+}
+
+/* SERVICES PAGE PARITY REINFORCEMENT */
+.alphabet-service-card img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  z-index: 0 !important;
+}
+
+.alphabet-service-card .backdrop-blur-md {
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.alphabet-service-card .group-hover\:backdrop-blur-lg {
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+}
+
+/* PAGE HEADER PARITY REINFORCEMENT */
+.alphabet-page-header-overlay {
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+}
